@@ -23,7 +23,7 @@ it, simply add the following line to your Podfile:
 pod 'ARImageCropper'
 ```
 
-Just drag a view in your view controller and assign it 'CropableImageView'. Just make an outlet of in it in your view controller class.
+Just drag a view in your view controller and assign it 'CropableImageView' class. Just make an outlet of in it in your view controller class.
 In your view controller just import ARImageCropper framework.
 
 ```swift
