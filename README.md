@@ -36,6 +36,11 @@ class ImageCropViewController: UIViewController {
     
 }
 ```
+You can easily get the cropped image using this method
+```swift
+cropView.croppedImage()
+```
+
 You can set the aspect ratio you want for the cropped image by setting this property
 ```swift
 cropView.croppedImageSize = CGSize(width: 100, height: 150)
