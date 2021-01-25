@@ -29,8 +29,6 @@ In your view controller just import ARImageCropper framework.
 ```swift
 import ARImageCropper
 
-import ARImageCropper
-
 class ImageCropViewController: UIViewController {
 
     // MARK: - OUTLETS
