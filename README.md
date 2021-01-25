@@ -9,7 +9,7 @@ ARImageCropper is a Swift library for cropping images. User can crop images acco
 2) `Color customization`
 
 ## Screenshot
-[![ARImageCropper](https://pasteboard.co/JLeIxQM.gif)]
+[(https://pasteboard.co/JLeIxQM.gif)]
 
 Installation
 ==========================
