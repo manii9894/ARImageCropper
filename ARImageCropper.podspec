@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
   This CocoaPods library helps you to crop images in the given aspect ratio and gives you high defination cropped image.
                    DESC
 
-  spec.homepage     = "http://EXAMPLE/ARImageCropper"
+  spec.homepage     = "https://github.com/manii9894/ARImageCropper.git"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -39,7 +39,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -67,9 +67,10 @@ Pod::Spec.new do |spec|
   # spec.platform     = :ios
   # spec.platform     = :ios, "5.0"
 
+  spec.swift_version = "4.2"
   #  When using multiple platforms
-  # spec.ios.deployment_target = "5.0"
-  # spec.osx.deployment_target = "10.7"
+   spec.ios.deployment_target = "12.0"
+  #spec.osx.deployment_target = "10.9"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
 
@@ -80,7 +81,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/ARImageCropper.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/manii9894/ARImageCropper.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,8 +91,8 @@ Pod::Spec.new do |spec|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
-    spec.source_files  = "ImageCropper", "ImageCropper/Classes"
-  spec.exclude_files = "Classes/Exclude"
+  spec.source_files  = "ARImageCropper"
+  #spec.exclude_files = "ARImageCropper/*.plist"
 
   # spec.public_header_files = "Classes/**/*.h"
 

@@ -50,20 +50,12 @@
 		B55EA61E25BADCB00085444F /* ARImageCropper */ = {
 			isa = PBXGroup;
 			children = (
-				B55EA62E25BADD070085444F /* Classes */,
 				B55EA61F25BADCB00085444F /* ARImageCropper.h */,
+				B55EA62F25BADD070085444F /* CornerPointView.swift */,
+				B55EA63025BADD070085444F /* CropableImageView.swift */,
 				B55EA62025BADCB00085444F /* Info.plist */,
 			);
 			path = ARImageCropper;
-			sourceTree = "<group>";
-		};
-		B55EA62E25BADD070085444F /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				B55EA62F25BADD070085444F /* CornerPointView.swift */,
-				B55EA63025BADD070085444F /* CropableImageView.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,7 +285,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -317,7 +309,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
