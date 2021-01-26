@@ -266,6 +266,12 @@ public class ARImageCropper: UIView {
         
     }
     
+    public func resetCropperArea() {
+        
+        updateCropperArea(size: croppedImageSize)
+        
+    }
+    
     private func rectFromStartAndEnd(_ startPoint:CGPoint, endPoint: CGPoint) -> CGRect {
         
         var  top, left, bottom, right: CGFloat
