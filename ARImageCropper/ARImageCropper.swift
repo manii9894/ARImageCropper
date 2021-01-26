@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class CropableImageView: UIView {
+public class ARImageCropper: UIView {
     
     // MARK: - PROPERTIES
     private let viewForImage: UIView
@@ -24,6 +24,7 @@ public class CropableImageView: UIView {
     private var maximumPossibleWidth: CGFloat = 0
     public var croppedImageSize: CGSize = CGSize()
     public var borderColor: UIColor = UIColor.red
+    public var borderWidth: CGFloat = 1.0
     public var cornersColor: UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
     private var isFirstTime = true
     fileprivate var internalCropRect: CGRect?
@@ -102,7 +103,7 @@ public class CropableImageView: UIView {
         
         super.awakeFromNib()
         superview?.insertSubview(viewForImage, belowSubview: self)
-        
+        self.backgroundColor = .clear
 //        Set up constraints to pin the image-containing view to the edges of this view.
         var aConstraint = NSLayoutConstraint(item: self,
                                              attribute: .top,
@@ -199,7 +200,7 @@ public class CropableImageView: UIView {
             path.lineWidth = 3.0
             UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).set()
             path.stroke()
-            path.lineWidth = 1.0
+            path.lineWidth = borderWidth
             borderColor.set()
             path.stroke()
         }
@@ -227,6 +228,23 @@ public class CropableImageView: UIView {
         } else {
             return nil
         }
+        
+    }
+    
+    public func updateCropperArea(size: CGSize) {
+        
+        internalCropRect = nil
+        draggingRect = false
+        croppedImageSize = size
+        guard let rect = imageRect else { return }
+        if rect.height > rect.width {
+            maximumPossibleWidth = rect.width
+            maximumPossibleHeight = rect.width * (croppedImageSize.height / croppedImageSize.width)
+        } else {
+            maximumPossibleWidth = rect.height * (croppedImageSize.width / croppedImageSize.height)
+            maximumPossibleHeight = rect.height
+        }
+        cropRect = rectFromStartAndEnd(CGPoint(x: 0, y: 0), endPoint: CGPoint(x: maximumPossibleWidth, y: maximumPossibleHeight))
         
     }
     
@@ -316,7 +334,7 @@ public class CropableImageView: UIView {
 }
 
 // MARK: - CORNER POINT DELEGATE -
-extension CropableImageView: CornerpointProtocol {
+extension ARImageCropper: CornerpointProtocol {
     
     func cornerHasChanged(_ newCornerPoint: CornerpointView) {
         
