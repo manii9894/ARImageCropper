@@ -11,6 +11,7 @@ public class ARImageCropper: UIView {
     
     // MARK: - PROPERTIES
     private let viewForImage: UIView
+    private let overlayView: UIView
     private var imageSize: CGSize?
     private var imageRect: CGRect?
     private var aspect: CGFloat
@@ -68,6 +69,7 @@ public class ARImageCropper: UIView {
                 cornerpoints.append(cornerPoint)
                 addSubview(cornerPoint)
             }
+            overlayView.isHidden = false
             setNeedsLayout()
         }
     }
@@ -77,8 +79,11 @@ public class ARImageCropper: UIView {
     public required init?(coder aDecoder: NSCoder) {
         
         
-        viewForImage = UIView(frame: CGRect.zero)
+        viewForImage = UIView(frame: .zero)
         viewForImage.translatesAutoresizingMaskIntoConstraints = false
+        overlayView = UIView(frame: .zero)
+        overlayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        overlayView.isUserInteractionEnabled = false
         aspect = 1
         dragger = UIPanGestureRecognizer()
         super.init(coder: aDecoder)
@@ -103,6 +108,8 @@ public class ARImageCropper: UIView {
         
         super.awakeFromNib()
         superview?.insertSubview(viewForImage, belowSubview: self)
+        superview?.insertSubview(overlayView, aboveSubview: self)
+        overlayView.isHidden = true
         self.backgroundColor = .clear
 //        Set up constraints to pin the image-containing view to the edges of this view.
         var aConstraint = NSLayoutConstraint(item: self,
@@ -147,6 +154,7 @@ public class ARImageCropper: UIView {
         
         super.layoutSubviews()
         viewForImage.frame = frame
+        overlayView.frame = frame
         //If we have an image...
         if let requiredImageSize = imageSize {
             var displaySize: CGSize = CGSize.zero
@@ -203,6 +211,16 @@ public class ARImageCropper: UIView {
             path.lineWidth = borderWidth
             borderColor.set()
             path.stroke()
+            
+            let blurPath = UIBezierPath(roundedRect: realCropRect, cornerRadius: 0)
+            blurPath.append(UIBezierPath(rect: imageRect!))
+            let maskLayer = CAShapeLayer()
+            maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
+            maskLayer.backgroundColor = UIColor.clear.cgColor
+            maskLayer.path = blurPath.cgPath
+            self.overlayView.layer.mask = maskLayer
+            self.layoutIfNeeded()
+            
         }
         
     }

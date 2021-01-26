@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B55349AC25BFF71F0030409A /* ARImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55349AB25BFF71F0030409A /* ARImageCropper.swift */; };
 		B55EA62125BADCB00085444F /* ARImageCropper.h in Headers */ = {isa = PBXBuildFile; fileRef = B55EA61F25BADCB00085444F /* ARImageCropper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B55EA63125BADD070085444F /* CornerPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EA62F25BADD070085444F /* CornerPointView.swift */; };
-		B55EA63225BADD070085444F /* CropableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EA63025BADD070085444F /* CropableImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B55349AB25BFF71F0030409A /* ARImageCropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARImageCropper.swift; sourceTree = "<group>"; };
 		B55EA61C25BADCB00085444F /* ARImageCropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARImageCropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B55EA61F25BADCB00085444F /* ARImageCropper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARImageCropper.h; sourceTree = "<group>"; };
 		B55EA62025BADCB00085444F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B55EA62F25BADD070085444F /* CornerPointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerPointView.swift; sourceTree = "<group>"; };
-		B55EA63025BADD070085444F /* CropableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropableImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,9 +50,9 @@
 		B55EA61E25BADCB00085444F /* ARImageCropper */ = {
 			isa = PBXGroup;
 			children = (
+				B55349AB25BFF71F0030409A /* ARImageCropper.swift */,
 				B55EA61F25BADCB00085444F /* ARImageCropper.h */,
 				B55EA62F25BADD070085444F /* CornerPointView.swift */,
-				B55EA63025BADD070085444F /* CropableImageView.swift */,
 				B55EA62025BADCB00085444F /* Info.plist */,
 			);
 			path = ARImageCropper;
@@ -136,7 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B55EA63225BADD070085444F /* CropableImageView.swift in Sources */,
+				B55349AC25BFF71F0030409A /* ARImageCropper.swift in Sources */,
 				B55EA63125BADD070085444F /* CornerPointView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
