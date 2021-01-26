@@ -47,6 +47,11 @@ You can easily get the cropped image using this method
 cropView.croppedImage()
 ```
 
+You can also reset the crop area to default
+```swift
+cropView.resetCropperArea()
+```
+
 You can update the crop area on runtime
 ```swift
 cropView.updateCropperArea(size: CGSize(width: 150, height: 100))
