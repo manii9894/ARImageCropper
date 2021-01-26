@@ -41,6 +41,11 @@ You can easily get the cropped image using this method
 cropView.croppedImage()
 ```
 
+You can update the crop area on runtime
+```swift
+cropView.updateCropperArea(size: CGSize(width: 150, height: 100))
+```
+
 You can set the aspect ratio you want for the cropped image by setting this property
 ```swift
 cropView.croppedImageSize = CGSize(width: 100, height: 150)
@@ -51,6 +56,12 @@ You can also set the border color and croners color of the cropper
 ```swift
 cropView.cornersColor = .green
 cropView.borderColor = .blue
+```
+
+You can also set the border width
+
+```swift
+cropView.borderWidth = 2.0
 ```
 
 LICENSE
