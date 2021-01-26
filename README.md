@@ -36,6 +36,12 @@ class ImageCropViewController: UIViewController {
     
 }
 ```
+
+Just set the image property of your 'ARImageCropper' view
+```swift
+cropView.image = yourImage
+```
+
 You can easily get the cropped image using this method
 ```swift
 cropView.croppedImage()
