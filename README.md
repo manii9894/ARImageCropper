@@ -23,7 +23,7 @@ it, simply add the following line to your Podfile:
 pod 'ARImageCropper'
 ```
 
-Just drag a view in your view controller and assign it 'CropableImageView' class. Just make an outlet of in it in your view controller class.
+Just drag a view in your view controller and assign it 'ARImageCropper' class. Just make an outlet of in it in your view controller class.
 In your view controller just import ARImageCropper framework.
 
 ```swift
@@ -32,7 +32,7 @@ import ARImageCropper
 class ImageCropViewController: UIViewController {
 
     // MARK: - OUTLETS
-    @IBOutlet weak var cropView: CropableImageView!
+    @IBOutlet weak var cropView: ARImageCropper!
     
 }
 ```
