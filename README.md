@@ -16,7 +16,7 @@ Installation
 
 #### Installation with CocoaPods
 
-ARImageCropper is available through [CocoaPods](http://cocoapods.org). To install
+ARImageCropper is available through [CocoaPods](https://cocoapods.org/pods/ARImageCropper). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
