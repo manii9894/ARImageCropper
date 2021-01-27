@@ -62,7 +62,7 @@ You can set the aspect ratio you want for the cropped image by setting this prop
 cropView.croppedImageSize = CGSize(width: 100, height: 150)
 ```
 
-You can also set the border color and croners color of the cropper
+You can also set the border color and corners color of the cropper
 
 ```swift
 cropView.cornersColor = .green
