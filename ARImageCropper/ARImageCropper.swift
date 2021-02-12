@@ -188,11 +188,21 @@ public class ARImageCropper: UIView {
             viewForImage.layer.contents = theImageRef as AnyObject
             guard let rect = imageRect else { return }
             if rect.height > rect.width {
-                maximumPossibleWidth = rect.width
                 maximumPossibleHeight = rect.width * (croppedImageSize.height / croppedImageSize.width)
+                let width = rect.height * (croppedImageSize.width / croppedImageSize.height)
+                if width > rect.width {
+                    maximumPossibleWidth = rect.width
+                } else {
+                    maximumPossibleWidth = width
+                }
             } else {
                 maximumPossibleWidth = rect.height * (croppedImageSize.width / croppedImageSize.height)
-                maximumPossibleHeight = rect.height
+                let height = rect.width * (croppedImageSize.height / croppedImageSize.width)
+                if height > rect.height {
+                    maximumPossibleHeight = rect.height
+                } else {
+                    maximumPossibleHeight = height
+                }
             }
             cropRect = rectFromStartAndEnd(CGPoint(x: 0, y: 0), endPoint: CGPoint(x: maximumPossibleWidth, y: maximumPossibleHeight))
         }
@@ -256,11 +266,21 @@ public class ARImageCropper: UIView {
         croppedImageSize = size
         guard let rect = imageRect else { return }
         if rect.height > rect.width {
-            maximumPossibleWidth = rect.width
             maximumPossibleHeight = rect.width * (croppedImageSize.height / croppedImageSize.width)
+            let width = rect.height * (croppedImageSize.width / croppedImageSize.height)
+            if width > rect.width {
+                maximumPossibleWidth = rect.width
+            } else {
+                maximumPossibleWidth = width
+            }
         } else {
             maximumPossibleWidth = rect.height * (croppedImageSize.width / croppedImageSize.height)
-            maximumPossibleHeight = rect.height
+            let height = rect.width * (croppedImageSize.height / croppedImageSize.width)
+            if height > rect.height {
+                maximumPossibleHeight = rect.height
+            } else {
+                maximumPossibleHeight = height
+            }
         }
         cropRect = rectFromStartAndEnd(CGPoint(x: 0, y: 0), endPoint: CGPoint(x: maximumPossibleWidth, y: maximumPossibleHeight))
         
@@ -286,12 +306,7 @@ public class ARImageCropper: UIView {
         let width = right - left
         let height = bottom - top
         
-        if height > maximumPossibleHeight || width > maximumPossibleWidth {
-            if internalCropRect != nil {
-                return internalCropRect!
-            }
-        }
-        
+        print("Maximum Possible Height: \(maximumPossibleHeight), Maximum Possible Width: \(maximumPossibleWidth), Ponits Height: \(height), Points Width: \(width)")
         if isFirstTime {
             isFirstTime = false
             return CGRect(x: xPosition, y: yPosition, width: width, height: height)
@@ -303,8 +318,23 @@ public class ARImageCropper: UIView {
                 top = imageRect!.minY
             }
             if croppedImageSize.width > croppedImageSize.height {
+                let calculatedHeight = width * theHeightScaleFactor
+                if calculatedHeight > maximumPossibleHeight || width > maximumPossibleWidth {
+                    if internalCropRect != nil {
+                        return internalCropRect!
+                    }
+                }
+                if top > (imageRect!.maxY - (width * theHeightScaleFactor)) && bottom >= imageRect!.maxY {
+                    top = imageRect!.maxY - (width * theHeightScaleFactor)
+                }
                 return CGRect(x: left, y: top, width: width, height: width * theHeightScaleFactor)
             } else {
+                let calculatedWidth = height * theWidthScaleFactor
+                if height > maximumPossibleHeight || calculatedWidth > maximumPossibleWidth {
+                    if internalCropRect != nil {
+                        return internalCropRect!
+                    }
+                }
                 if left > (imageRect!.maxX - (height * theWidthScaleFactor)) && right >= imageRect!.maxX {
                     left = imageRect!.maxX - (height * theWidthScaleFactor)
                 }
