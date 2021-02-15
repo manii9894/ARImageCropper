@@ -306,7 +306,6 @@ public class ARImageCropper: UIView {
         let width = right - left
         let height = bottom - top
         
-        print("Maximum Possible Height: \(maximumPossibleHeight), Maximum Possible Width: \(maximumPossibleWidth), Ponits Height: \(height), Points Width: \(width)")
         if isFirstTime {
             isFirstTime = false
             return CGRect(x: xPosition, y: yPosition, width: width, height: height)
