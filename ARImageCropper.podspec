@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ARImageCropper"
-  spec.version      = "0.1.0"
+  spec.version      = "1.0.0"
   spec.summary      = "A CocoaPods library to crop images."
 
   # This description is used to generate tags and improve search results.
@@ -53,9 +53,9 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "Abdul Rehman" => "abdul.rehman@nxb.com.pk" }
+  spec.author             = { "Abdul Rehman" => "a.rehman9894@gmail.com" }
   # Or just: spec.author    = "Abdul Rehman"
-  # spec.authors            = { "Abdul Rehman" => "abdul.rehman@nxb.com.pk" }
+  # spec.authors            = { "Abdul Rehman" => "a.rehman9894@gmail.com" }
   # spec.social_media_url   = "https://twitter.com/Abdul Rehman"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

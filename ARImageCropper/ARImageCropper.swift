@@ -24,9 +24,12 @@ public class ARImageCropper: UIView {
     private var maximumPossibleHeight: CGFloat = 0
     private var maximumPossibleWidth: CGFloat = 0
     public var croppedImageSize: CGSize = CGSize()
-    public var borderColor: UIColor = UIColor.red
+    public var borderColor: UIColor = .red
     public var borderWidth: CGFloat = 1.0
-    public var cornersColor: UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+    public var cornersColor: UIColor = .yellow
+    public var cornersSize: CGSize = CGSize(width: 15, height: 15)
+    public var cornersLineWidth: CGFloat = 2
+    public var cornerShape: CornerShape = .line
     private var isFirstTime = true
     fileprivate var internalCropRect: CGRect?
     private var cropRect: CGRect? {
@@ -63,8 +66,13 @@ public class ARImageCropper: UIView {
                 croppedImageSize.height = 50
                 croppedImageSize.width = 50
             }
-            for _ in 1...4 {
-                let cornerPoint = CornerpointView(color: cornersColor.cgColor)
+            for i in 1...4 {
+                var cornerPoint: CornerpointView!
+                if cornerShape == .line {
+                    cornerPoint = CornerpointView(color: cornersColor.cgColor, cornersSize: cornersSize, cornersLineWidth: cornersLineWidth, cornerPosition: CornerPosition(rawValue: i - 1)!)
+                } else {
+                    cornerPoint = CornerpointView(color: cornersColor.cgColor, cornersSize: cornersSize)
+                }
                 cornerPoint.delegate = self
                 cornerpoints.append(cornerPoint)
                 addSubview(cornerPoint)
