@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ARImageCropper"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "A CocoaPods library to crop images."
 
   # This description is used to generate tags and improve search results.
