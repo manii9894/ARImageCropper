@@ -106,12 +106,12 @@ class CornerpointView: UIView {
     
     @objc func handleCornerDrag(_ thePanner: UIPanGestureRecognizer) {
         switch thePanner.state {
-        case UIGestureRecognizerState.began:
+        case .began:
             dragStart = centerPoint
             thePanner.setTranslation(CGPoint.zero,
                                      in: self)
         
-        case UIGestureRecognizerState.changed:
+        case .changed:
             //println("In view dragger changed at \(newPoint)")
             centerPoint = CGPoint(x: dragStart.x + thePanner.translation(in: self).x,
                                   y: dragStart.y + thePanner.translation(in: self).y)

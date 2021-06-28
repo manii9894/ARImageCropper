@@ -356,7 +356,7 @@ public class ARImageCropper: UIView {
         guard imageSize != nil else { return }
         let newPoint = panGesture.location(in: self)
         switch panGesture.state {
-        case UIGestureRecognizerState.began:
+        case .began:
             
             //if we have a crop rect and the touch is inside it, drag the entire rect.
             if let requiredCropRect = internalCropRect {
@@ -369,7 +369,7 @@ public class ARImageCropper: UIView {
             }
             
             
-        case UIGestureRecognizerState.changed:
+        case .changed:
             
             //If the user is dragging the entire rect, don't let it be draggged out-of-bounds
             if draggingRect {
